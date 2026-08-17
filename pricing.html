@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Petsama | Transparent Pet Sitting Rates in Bengaluru</title>
+<meta name="description" content="See exactly what you pay and what your sitter earns. Transparent, fair pricing for home pet sitting in Bengaluru — no hidden charges, no middlemen.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Pricing — Petsama">
+<meta property="og:description" content="Transparent, fair pricing for home pet sitting in Bengaluru — see exactly where your money goes.">
+<meta property="og:image" content="assets/petsama-banner.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF1E4;
+    --cream-2:#F5E6D0;
+    --red:#C1272D;
+    --red-dark:#8F1B20;
+    --ink:#1E1710;
+    --ink-soft:#6E5D4C;
+    --gold:#D4A017;
+    --sakura:#F6C9D3;
+    --green:#2E7D5B;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);}
+  h1,h2,h3,.brand-text{font-family:'Poppins',sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px;}
+  img{max-width:100%;display:block;}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(251,241,228,0.92);backdrop-filter:blur(8px);border-bottom:2px solid var(--ink);}
+  nav .inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand img{width:38px;height:38px;object-fit:contain;}
+  .brand-text{font-size:19px;font-weight:800;color:var(--red-dark);}
+  .nav-links{display:flex;gap:26px;font-weight:600;font-size:14.5px;align-items:center;}
+  .nav-links a:hover{color:var(--red);}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;padding:11px 22px;border-radius:100px;border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:transform .15s ease, box-shadow .15s ease;font-family:'Inter',sans-serif;font-size:14px;cursor:pointer;background:var(--red);color:#fff;}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);}
+
+  .hero-mini{text-align:center;padding:56px 20px 20px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--gold);border:2px solid var(--ink);border-radius:100px;padding:6px 16px;font-weight:700;font-size:13px;margin-bottom:16px;}
+  .hero-mini h1{font-size:38px;font-weight:800;color:var(--red-dark);margin-bottom:14px;}
+  .hero-mini p{color:var(--ink-soft);font-size:16px;max-width:560px;margin:0 auto;line-height:1.6;}
+
+  .section{padding:56px 0;}
+  .section-head{max-width:640px;margin:0 auto 34px;text-align:center;}
+  .section-head h2{font-size:28px;font-weight:800;color:var(--red-dark);margin-bottom:10px;}
+  .section-head p{color:var(--ink-soft);font-size:15px;line-height:1.6;}
+
+  /* PRICE CARDS */
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .price-card{background:#fff;border:3px solid var(--ink);border-radius:22px;padding:26px 22px;box-shadow:6px 6px 0 var(--ink);position:relative;}
+  .price-card.popular{border-color:var(--red);}
+  .popular-tag{position:absolute;top:-14px;right:20px;background:var(--red);color:#fff;font-size:11px;font-weight:800;padding:5px 12px;border-radius:100px;border:2px solid var(--ink);}
+  .price-card h3{font-size:17px;margin-bottom:6px;}
+  .price-card .price{font-family:'Poppins';font-weight:800;font-size:30px;color:var(--red-dark);margin-bottom:2px;}
+  .price-card .unit{font-size:13px;color:var(--ink-soft);margin-bottom:14px;display:block;}
+  .price-card ul{list-style:none;font-size:13.5px;color:var(--ink-soft);line-height:2;}
+  .price-card ul li::before{content:"🐾 ";}
+  .price-note{text-align:center;color:var(--ink-soft);font-size:13.5px;margin-top:22px;}
+
+  /* TRANSPARENCY BREAKDOWN */
+  .breakdown-section{background:var(--ink);color:var(--cream);}
+  .breakdown-section .section-head p{color:#D8C9B8;}
+  .breakdown-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+  .split-bar{display:flex;width:100%;height:44px;border-radius:100px;overflow:hidden;border:3px solid var(--cream);margin-bottom:20px;}
+  .split-seg{display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:800;font-size:13px;color:#fff;}
+  .split-sitter{background:var(--green);width:85%;}
+  .split-ops{background:var(--gold);width:10%;color:var(--ink);}
+  .split-fee{background:var(--red);width:5%;}
+  .legend{font-size:14px;}
+  .legend div{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .dot{width:14px;height:14px;border-radius:4px;flex-shrink:0;}
+  .legend strong{font-family:'Poppins';}
+  .legend span{color:#D8C9B8;font-size:13px;}
+
+  .story-card{background:#2B2118;border:2px solid #4A3A28;border-radius:20px;padding:26px;}
+  .story-card h3{color:var(--gold);font-size:17px;margin-bottom:10px;}
+  .story-card p{color:#D8C9B8;font-size:14px;line-height:1.65;}
+
+  /* COMPARISON TABLE */
+  table.compare{width:100%;border-collapse:collapse;background:#fff;border:3px solid var(--ink);border-radius:18px;overflow:hidden;box-shadow:6px 6px 0 var(--ink);}
+  table.compare th, table.compare td{padding:14px 16px;text-align:left;font-size:14px;border-bottom:1.5px solid #EEE0CC;}
+  table.compare th{background:var(--cream-2);font-family:'Poppins';font-weight:700;font-size:13.5px;}
+  table.compare tr:last-child td{border-bottom:none;}
+  table.compare td.petsama{color:var(--green);font-weight:700;}
+  table.compare td.other{color:var(--ink-soft);}
+  .source-note{font-size:12.5px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;}
+
+  /* FAQ */
+  .faq-item{background:#fff;border:2.5px solid var(--ink);border-radius:16px;padding:18px 22px;margin-bottom:14px;}
+  .faq-item h3{font-size:15.5px;margin-bottom:6px;color:var(--red-dark);}
+  .faq-item p{font-size:14px;color:var(--ink-soft);line-height:1.6;}
+
+  .cta-section{background:var(--red);text-align:center;padding:64px 24px;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);}
+  .cta-section h2{color:#fff;font-size:28px;margin-bottom:10px;}
+  .cta-section p{color:#FBDADA;font-size:15px;margin-bottom:26px;}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn.ghost{background:#fff;color:var(--red-dark);}
+  .btn.wa{background:#25D366;}
+
+  footer{padding:36px 0;text-align:center;color:var(--ink-soft);font-size:13px;}
+
+  @media(max-width:860px){
+    .price-grid{grid-template-columns:1fr;}
+    .breakdown-wrap{grid-template-columns:1fr;}
+    .nav-links a:not(.btn){display:none;}
+    table.compare{font-size:12px;}
+    table.compare th, table.compare td{padding:10px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a href="index.html" class="brand"><img src="assets/petsama-logo.png" alt="Petsama logo"><span class="brand-text">Petsama</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="book.html" class="btn">Book a visit 🐾</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap" style="padding-top:26px;">
+  <img src="assets/petsama-banner.png" alt="Petsama — Stay. Play. Be Loved." style="width:100%;border-radius:24px;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);">
+</div>
+
+<div class="hero-mini">
+  <div class="eyebrow">💛 No hidden charges, ever</div>
+  <h1>Simple, honest pricing</h1>
+  <p>Every rupee is accounted for. Here's exactly what you pay, exactly what your sitter earns, and why that split looks nothing like a typical pet care company.</p>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Our rates</h2>
+      <p>Bengaluru only, for now. Final price depends on pet size/count and exact duration — your sitter will confirm before you book.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <h3>🚪 Drop-in visit</h3>
+        <div class="price">₹349</div>
+        <span class="unit">per visit (~45–60 min)</span>
+        <ul>
+          <li>Feeding & fresh water</li>
+          <li>Potty break / litter clean</li>
+          <li>Photo update after visit</li>
+        </ul>
+      </div>
+      <div class="price-card popular">
+        <div class="popular-tag">MOST BOOKED</div>
+        <h3>☀️ Twice-daily visits</h3>
+        <div class="price">₹699</div>
+        <span class="unit">per day (morning + evening)</span>
+        <ul>
+          <li>Everything in drop-in, twice</li>
+          <li>Medication if needed</li>
+          <li>2–3 photo/video updates</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <h3>🌙 Overnight stay</h3>
+        <div class="price">₹999</div>
+        <span class="unit">per night, sitter stays home</span>
+        <ul>
+          <li>Full routine + companionship</li>
+          <li>Home stays occupied overnight</li>
+          <li>Daily photo/video updates</li>
+        </ul>
+      </div>
+    </div>
+    <p class="price-note">📉 Book 5+ nights back-to-back and get 10% off automatically. No coupon needed.</p>
+  </div>
+</section>
+
+<section class="section breakdown-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" style="background:var(--gold);color:var(--ink);">Where your money goes</div>
+      <h2>No middlemen taking the biggest slice</h2>
+      <p>We built Petsama because we were the ones doing the actual work and keeping the smallest share of it. So we flipped it.</p>
+    </div>
+    <div class="breakdown-wrap">
+      <div>
+        <div class="split-bar">
+          <div class="split-seg split-sitter">85%</div>
+          <div class="split-seg split-ops">10%</div>
+          <div class="split-seg split-fee">5%</div>
+        </div>
+        <div class="legend">
+          <div><span class="dot" style="background:var(--green);"></span><div><strong>85% — your sitter.</strong> <span>The person actually showing up and caring for your pet.</span></div></div>
+          <div><span class="dot" style="background:var(--gold);"></span><div><strong>10% — community ops.</strong> <span>Background checks, sitter support, dispute handling, insurance buffer.</span></div></div>
+          <div><span class="dot" style="background:var(--red);"></span><div><strong>5% — payments & upkeep.</strong> <span>Gateway fees and keeping the platform running.</span></div></div>
+        </div>
+      </div>
+      <div class="story-card">
+        <h3>Why we care about this</h3>
+        <p>We're a small team of pet sitters who've spent years doing this work for other platforms — and watched a big chunk of every booking disappear before it reached us. Petsama isn't a company hiring sitters. It's sitters who decided to run this ourselves, so more of what you pay reaches the person your pet actually spends time with. We're not trying to be the cheapest option in Bengaluru. We're trying to be the fairest one — for you and for the sitter at your door.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" style="background:var(--sakura);">How we compare</div>
+      <h2>Petsama vs. the typical pet care platform</h2>
+      <p>Rates for home-based pet sitting/boarding across Bengaluru platforms generally fall in these ranges.</p>
+    </div>
+    <table class="compare">
+      <tr><th>What you're comparing</th><th>Petsama</th><th>Typical platforms</th></tr>
+      <tr><td>Overnight stay</td><td class="petsama">₹999/night</td><td class="other">₹1,000 – ₹1,800/night</td></tr>
+      <tr><td>Twice-daily drop-in</td><td class="petsama">₹699/day</td><td class="other">₹700 – ₹1,000/day</td></tr>
+      <tr><td>Sitter's share of your payment</td><td class="petsama">~85%</td><td class="other">Usually 60–70%, rarely disclosed</td></tr>
+      <tr><td>Who you're talking to</td><td class="petsama">A sitter, directly</td><td class="other">Support staff / call center</td></tr>
+      <tr><td>Price breakdown shown to you</td><td class="petsama">Always</td><td class="other">Rarely</td></tr>
+    </table>
+    <p class="source-note">Comparison ranges based on publicly listed rates and industry pricing guides for home-based pet sitting/boarding in Bengaluru, current as of 2026. Actual competitor rates vary by pet size, duration, and season — always confirm directly with any provider.</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--cream-2);">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Questions people ask</h2>
+    </div>
+    <div class="faq-item">
+      <h3>Why aren't you the cheapest option in the city?</h3>
+      <p>We could be — by paying sitters less. We'd rather keep sitter pay fair and be transparent about it than win on a race-to-the-bottom price that quietly comes out of someone's earnings.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are there any extra charges later?</h3>
+      <p>No booking fees, no "convenience" charges, no surprise add-ons. The price you see is confirmed by your sitter before the visit and that's what you pay.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if my pet needs something outside a standard visit?</h3>
+      <p>Message us on WhatsApp — medication, multiple pets, extra playtime, whatever it is, we'll quote it upfront before anything is booked.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I pay?</h3>
+      <p>UPI or card, confirmed directly with your sitter once the booking is set. Payment only happens after your details are confirmed — nothing charged upfront just for filling the form.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Fair pricing, happy pets 🐾</h2>
+  <p>Ready to book, or still have questions? Either way, we're one message away.</p>
+  <div class="cta-btns">
+    <a href="book.html" class="btn ghost">Book a visit</a>
+    <a href="https://wa.me/919996999505" target="_blank" class="btn wa">💬 WhatsApp us</a>
+  </div>
+</section>
+
+<footer>Petsama · Bengaluru · Stay. Play. Be Loved. 🐾</footer>
+
+</body>
+</html>
