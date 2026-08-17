@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Visit — Petsama</title>
+<meta name="description" content="Book a verified pet sitter in Bengaluru in under 2 minutes, or message Petsama directly on WhatsApp.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Book a Visit — Petsama">
+<meta property="og:description" content="Book a verified pet sitter in Bengaluru in under 2 minutes, or message us directly on WhatsApp.">
+<meta property="og:image" content="assets/petsama-banner.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF1E4;
+    --cream-2:#F5E6D0;
+    --red:#C1272D;
+    --red-dark:#8F1B20;
+    --ink:#1E1710;
+    --ink-soft:#6E5D4C;
+    --gold:#D4A017;
+    --sakura:#F6C9D3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;}
+  h1,h2,.brand-text{font-family:'Poppins',sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px;}
+  img{max-width:100%;display:block;}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(251,241,228,0.92);backdrop-filter:blur(8px);border-bottom:2px solid var(--ink);}
+  nav .inner{max-width:640px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 20px;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand img{width:38px;height:38px;object-fit:contain;}
+  .brand-text{font-size:19px;font-weight:800;color:var(--red-dark);}
+  .back{font-size:14px;font-weight:600;color:var(--ink-soft);}
+
+  .hero-mini{text-align:center;padding:44px 20px 10px;}
+  .hero-mini h1{font-size:32px;font-weight:800;color:var(--red-dark);margin-bottom:10px;}
+  .hero-mini p{color:var(--ink-soft);font-size:15.5px;max-width:440px;margin:0 auto;line-height:1.55;}
+
+  .wa-banner{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    background:#25D366;border:3px solid var(--ink);border-radius:20px;
+    padding:16px 20px;margin:26px auto;box-shadow:5px 5px 0 var(--ink);
+    color:#fff;flex-wrap:wrap;
+  }
+  .wa-banner .txt{font-family:'Poppins';font-weight:700;font-size:15px;}
+  .wa-banner .sub{font-family:'Inter';font-weight:500;font-size:13px;opacity:.9;}
+  .wa-btn{background:#fff;color:#1E7E42;font-weight:800;padding:10px 20px;border-radius:100px;border:2.5px solid var(--ink);font-family:'Poppins';font-size:14px;white-space:nowrap;}
+
+  .divider{display:flex;align-items:center;gap:14px;margin:30px auto;color:var(--ink-soft);font-size:13px;font-weight:600;}
+  .divider::before,.divider::after{content:"";flex:1;height:2px;background:#E3D5C0;}
+
+  form{background:#fff;border:3px solid var(--ink);border-radius:26px;padding:30px 26px;box-shadow:7px 7px 0 var(--ink);margin-bottom:60px;}
+  .field{margin-bottom:20px;}
+  .field label{display:flex;align-items:center;gap:6px;font-family:'Poppins';font-weight:700;font-size:14.5px;margin-bottom:8px;}
+  .field input[type=text], .field input[type=tel], .field input[type=number], .field input[type=date], .field textarea, .field select{
+    width:100%;font-family:'Inter';font-size:15px;padding:12px 14px;border-radius:12px;
+    border:2px solid #E3D5C0;background:var(--cream);
+  }
+  .field input:focus, .field textarea:focus, .field select:focus{outline:none;border-color:var(--red);}
+  .field textarea{resize:vertical;min-height:70px;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+  .chip-group{display:flex;gap:10px;flex-wrap:wrap;}
+  .chip{
+    padding:10px 18px;border-radius:100px;border:2px solid var(--ink);
+    font-weight:600;font-size:14px;cursor:pointer;background:var(--cream);
+    transition:all .15s ease;user-select:none;
+  }
+  .chip.active{background:var(--red);color:#fff;box-shadow:3px 3px 0 var(--ink);transform:translate(-1px,-1px);}
+  .chip:hover{background:var(--sakura);}
+  .chip.active:hover{background:var(--red);}
+
+  .optional-tag{font-weight:500;font-size:12px;color:var(--ink-soft);text-transform:none;}
+
+  .submit-btn{
+    width:100%;background:var(--red);color:#fff;font-family:'Poppins';font-weight:800;font-size:16px;
+    padding:16px;border-radius:100px;border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+    cursor:pointer;margin-top:8px;transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .submit-btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink);}
+  .submit-btn:active{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink);}
+
+  #successBox{
+    display:none;background:#fff;border:3px solid var(--ink);border-radius:26px;
+    padding:36px 26px;text-align:center;box-shadow:7px 7px 0 var(--ink);margin-bottom:60px;
+  }
+  #successBox .emoji{font-size:44px;margin-bottom:12px;}
+  #successBox h2{color:var(--red-dark);font-size:24px;margin-bottom:10px;}
+  #successBox p{color:var(--ink-soft);font-size:15px;line-height:1.6;margin-bottom:18px;}
+
+  footer{padding:30px 0;text-align:center;color:var(--ink-soft);font-size:13px;}
+
+  @media(max-width:480px){
+    .row2{grid-template-columns:1fr;}
+    .hero-mini h1{font-size:26px;}
+    form{padding:24px 18px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a href="index.html" class="brand"><img src="assets/petsama-logo.png" alt="Petsama logo"><span class="brand-text">Petsama</span></a>
+    <div style="display:flex;gap:18px;">
+      <a href="pricing.html" class="back">Pricing</a>
+      <a href="index.html" class="back">← Home</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <img src="assets/petsama-banner.png" alt="Petsama — Stay. Play. Be Loved." style="width:100%;border-radius:22px;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);margin-top:22px;">
+
+  <div class="hero-mini">
+    <h1>Let's get your pet sorted 🐾</h1>
+    <p>Takes about 2 minutes. Or skip it entirely and just message us — whatever's easier.</p>
+  </div>
+
+  <div class="wa-banner">
+    <div>
+      <div class="txt">Prefer to just chat?</div>
+      <div class="sub">Tap and tell us what your pet needs, no form required.</div>
+    </div>
+    <a href="https://wa.me/918429272310" target="_blank" class="wa-btn">💬 WhatsApp us</a>
+  </div>
+
+  <div class="divider">OR FILL THIS QUICK FORM</div>
+
+  <form id="bookForm">
+    <div class="field">
+      <label>🙋 Your name</label>
+      <input type="text" id="parentName" required placeholder="e.g. Anshul Gupta">
+    </div>
+    <div class="field">
+      <label>📱 WhatsApp number</label>
+      <input type="tel" id="phone" required placeholder="e.g. 98765 43210">
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label>🐶 Pet's name</label>
+        <input type="text" id="petName" required placeholder="e.g. Dodo">
+      </div>
+      <div class="field">
+        <label>🎂 Age</label>
+        <input type="text" id="petAge" placeholder="e.g. 16 months">
+      </div>
+    </div>
+    <div class="field">
+      <label>🐾 Pet type</label>
+      <div class="chip-group" id="petTypeGroup">
+        <div class="chip" data-value="Dog">Dog</div>
+        <div class="chip" data-value="Cat">Cat</div>
+        <div class="chip" data-value="Other">Other</div>
+      </div>
+    </div>
+    <div class="field">
+      <label>🧬 Breed <span class="optional-tag">(optional)</span></label>
+      <input type="text" id="breed" placeholder="e.g. Persian Cat">
+    </div>
+    <div class="field">
+      <label>🏠 What do you need?</label>
+      <div class="chip-group" id="serviceGroup">
+        <div class="chip" data-value="Drop-in visits">Drop-in visits</div>
+        <div class="chip" data-value="Overnight stay">Overnight stay</div>
+        <div class="chip" data-value="Daily walks">Daily walks</div>
+      </div>
+    </div>
+    <div class="field">
+      <label>⏰ Visit frequency <span class="optional-tag">(optional)</span></label>
+      <select id="frequency">
+        <option value="" selected disabled>Choose one</option>
+        <option>Once a day</option>
+        <option>Twice a day (morning & evening)</option>
+        <option>Overnight</option>
+        <option>Custom — I'll explain on WhatsApp</option>
+      </select>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label>📅 Check-in date</label>
+        <input type="date" id="checkin" required>
+      </div>
+      <div class="field">
+        <label>⏱️ Check-in time</label>
+        <input type="time" id="checkinTime" required>
+      </div>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label>📅 Check-out date</label>
+        <input type="date" id="checkout" required>
+      </div>
+      <div class="field">
+        <label>⏱️ Check-out time</label>
+        <input type="time" id="checkoutTime" required>
+      </div>
+    </div>
+    <div class="field">
+      <label>📍 Area in Bengaluru</label>
+      <input type="text" id="location" required placeholder="e.g. HSR Layout">
+    </div>
+    <div class="field">
+      <label>📝 Anything we should know? <span class="optional-tag">(optional)</span></label>
+      <textarea id="notes" placeholder="Medication, allergies, separation anxiety, or just quirks we'll love knowing about"></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Send my request 🐾</button>
+  </form>
+
+  <div id="successBox">
+    <div class="emoji">🐾🎉</div>
+    <h2>Almost there!</h2>
+    <p>We just opened WhatsApp with your details filled in — hit <strong>send</strong> there and it lands directly in our inbox. We'll confirm your sitter within a few hours.</p>
+    <a id="successMsgLink" href="https://wa.me/918429272310" target="_blank" class="wa-btn" style="display:inline-block;">💬 Open WhatsApp again</a>
+  </div>
+</div>
+
+<footer>Petsama · Bengaluru · Stay. Play. Be Loved. 🐾</footer>
+
+<script>
+  function setupChips(groupId){
+    const group = document.getElementById(groupId);
+    const chips = group.querySelectorAll('.chip');
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+      });
+    });
+  }
+  setupChips('petTypeGroup');
+  setupChips('serviceGroup');
+
+  document.getElementById('bookForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const parentName = document.getElementById('parentName').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const petName = document.getElementById('petName').value.trim();
+    const petAge = document.getElementById('petAge').value.trim();
+    const petType = document.querySelector('#petTypeGroup .chip.active');
+    const breed = document.getElementById('breed').value.trim();
+    const service = document.querySelector('#serviceGroup .chip.active');
+    const frequency = document.getElementById('frequency').value;
+    const checkin = document.getElementById('checkin').value;
+    const checkinTime = document.getElementById('checkinTime').value;
+    const checkout = document.getElementById('checkout').value;
+    const checkoutTime = document.getElementById('checkoutTime').value;
+    const location = document.getElementById('location').value.trim();
+    const notes = document.getElementById('notes').value.trim();
+
+    let msg = "New booking request via Petsama website:\n\n";
+    msg += "Pet Parent: " + parentName + "\n";
+    msg += "Contact: " + phone + "\n";
+    msg += "Pet: " + petName + (petAge ? " (" + petAge + ")" : "") + "\n";
+    msg += "Type: " + (petType ? petType.dataset.value : "-") + "\n";
+    if (breed) msg += "Breed: " + breed + "\n";
+    msg += "Service: " + (service ? service.dataset.value : "-") + "\n";
+    if (frequency) msg += "Frequency: " + frequency + "\n";
+    msg += "Check-in: " + checkin + (checkinTime ? " at " + checkinTime : "") + "\n";
+    msg += "Check-out: " + checkout + (checkoutTime ? " at " + checkoutTime : "") + "\n";
+    msg += "Area: " + location + "\n";
+    if (notes) msg += "Notes: " + notes + "\n";
+
+    const waLink = "https://wa.me/918429272310?text=" + encodeURIComponent(msg);
+
+    document.getElementById('bookForm').style.display = 'none';
+    document.querySelector('.wa-banner').style.display = 'none';
+    document.querySelector('.divider').style.display = 'none';
+    document.getElementById('successBox').style.display = 'block';
+    document.getElementById('successMsgLink').href = waLink;
+    window.scrollTo({top:0, behavior:'smooth'});
+    window.open(waLink, '_blank');
+  });
+</script>
+
+</body>
+</html>
