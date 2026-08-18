@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Rogue Gallery — Petsama Bengaluru</title>
+<title>Petsama — Sitter Club & Rogue Gallery | Stay. Play. Be Loved.</title>
 <meta name="description" content="Meet the famously unhinged, delightfully spoiled, and highly demanding clients of Petsama Bengaluru. Take the vibe quiz to find your spirit pet!">
 
 <!-- Elegant editorial & premium modern fonts -->
@@ -74,36 +74,62 @@
     padding: 16px 24px;
   }
 
-  .logo-group {
+  .brand {
     display: flex;
     align-items: center;
     gap: 12px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .brand img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
   }
 
   .logo-text {
     font-size: 24px;
+    color: var(--red-dark);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-weight: 700;
+    font-size: 14.5px;
+    transition: color 0.15s ease;
+  }
+
+  .nav-links a:hover {
     color: var(--red);
   }
 
-  .btn-back {
+  .btn-book {
     font-weight: 800;
     font-size: 14px;
-    padding: 8px 18px;
-    background: #fff;
+    padding: 10px 20px;
+    background: var(--red);
+    color: #fff;
     border: var(--border-thin);
     border-radius: 50px;
     box-shadow: var(--shadow-small);
     text-decoration: none;
-    color: var(--ink);
     transition: all 0.15s ease;
   }
 
-  .btn-back:hover {
+  .btn-book:hover {
     transform: translate(-2px, -2px);
     box-shadow: 5px 5px 0 var(--ink);
+    background: var(--red-dark);
   }
 
-  /* --- HERO HEROIC CHAOS --- */
+  /* --- HERO AREA --- */
   .hero {
     text-align: center;
     padding: 80px 0 40px;
@@ -146,18 +172,18 @@
     font-weight: 500;
   }
 
-  /* --- INTERACTIVE MINI-QUIZ --- */
+  /* --- INTERACTIVE SPIRIT ANIMAL QUIZ --- */
   .quiz-section {
     background: var(--sakura);
     border-bottom: var(--border-thick);
-    padding: 50px 0;
+    padding: 60px 0;
   }
 
   .quiz-box {
     background: #fff;
     border: var(--border-thick);
     border-radius: 24px;
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
     padding: 40px;
     box-shadow: var(--shadow-neobrutal);
@@ -167,6 +193,13 @@
 
   .quiz-box h3 {
     font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  .quiz-subtitle {
+    color: var(--ink-soft);
+    font-size: 14px;
+    font-weight: 600;
     margin-bottom: 24px;
   }
 
@@ -202,9 +235,9 @@
   }
 
   .result-img-wrap {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
+    width: 220px;
+    height: 220px;
+    border-radius: 20px;
     border: var(--border-thick);
     overflow: hidden;
     margin: 0 auto 20px;
@@ -217,14 +250,38 @@
     object-fit: cover;
   }
 
-  /* --- FILTER BUTTONS --- */
+  .btn-reset {
+    font-weight: 800;
+    font-size: 14px;
+    padding: 10px 22px;
+    background: #fff;
+    border: var(--border-thin);
+    border-radius: 50px;
+    box-shadow: var(--shadow-small);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .btn-reset:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  /* --- FILTER SYSTEM --- */
   .filter-area {
-    padding: 50px 0 20px;
+    padding: 60px 0 20px;
     text-align: center;
   }
 
   .filter-title {
-    font-size: 28px;
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  .filter-subtitle {
+    color: var(--ink-soft);
+    font-size: 15px;
+    font-weight: 500;
     margin-bottom: 24px;
   }
 
@@ -255,7 +312,7 @@
     box-shadow: 5px 5px 0px var(--gold);
   }
 
-  /* --- GALLERY GRID --- */
+  /* --- PORTFOLIO DYNAMIC GRID --- */
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -305,7 +362,7 @@
     text-transform: uppercase;
   }
 
-  /* Dynamic Tag Colors */
+  /* Tag Color Sets */
   .tag.fight { background: var(--red); color: #fff; }
   .tag.chill { background: var(--sage); color: var(--ink); }
   .tag.sass { background: var(--sakura); color: var(--ink); }
@@ -321,7 +378,7 @@
 
   .card-title {
     font-size: 22px;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     color: var(--ink);
   }
 
@@ -359,25 +416,32 @@
     color: var(--ink);
   }
 
-  /* --- FOOTER BANNER --- */
+  /* --- BOTTOM CTAS --- */
   .footer-banner {
     background: var(--ink);
     color: var(--cream);
     text-align: center;
-    padding: 60px 24px;
+    padding: 80px 24px;
     margin-top: 80px;
     border-top: var(--border-thick);
   }
 
   .footer-banner h2 {
-    font-size: 36px;
+    font-size: 38px;
     margin-bottom: 12px;
   }
 
   .footer-banner p {
     font-size: 16px;
     color: var(--cream-dark);
-    margin-bottom: 24px;
+    margin-bottom: 30px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
   }
 
   .btn-cta {
@@ -385,7 +449,7 @@
     background: var(--gold);
     color: var(--ink);
     font-weight: 800;
-    padding: 12px 28px;
+    padding: 14px 32px;
     border-radius: 50px;
     border: var(--border-thin);
     box-shadow: var(--shadow-small);
@@ -398,12 +462,18 @@
     box-shadow: 6px 6px 0 #fff;
   }
 
-  /* --- RESPONSIVE DECOR --- */
+  .btn-cta.wa {
+    background: #25D366;
+    color: #fff;
+  }
+
+  /* --- RESPONSIVE STYLE --- */
   @media(max-width: 768px) {
     .hero h1 { font-size: 38px; }
     .hero p { font-size: 15px; }
     .quiz-box { padding: 24px; }
     .quiz-box h3 { font-size: 22px; }
+    .nav-links { display: none; }
   }
 </style>
 </head>
@@ -411,32 +481,39 @@
 
 <header>
   <div class="wrap">
-    <div class="logo-group">
-      <span class="logo-text">🐾 Petsama</span>
+    <a href="index.html" class="brand">
+      <img src="assets/petsama-logo.png" alt="Petsama logo" onerror="this.style.display='none'">
+      <span class="logo-text">Petsama</span>
+    </a>
+    <div class="nav-links">
+      <a href="#quiz-box">Vibe Quiz</a>
+      <a href="#gallery-grid">Meet the Pets</a>
+      <a href="pricing.html">Pricing</a>
     </div>
-    <a href="index.html" class="btn-back">← Back to Main</a>
+    <a href="book.html" class="btn-book">Book a visit 🐾</a>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO AREA -->
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow">The Official Petsama Dossier</span>
-    <h1>The <span>Rogue Gallery</span></h1>
-    <p>We don't match cages. We match personalities. Meet our most famously spoiled, unhinged, and brilliantly demanding Bengaluru clients.</p>
+    <span class="eyebrow">🐾 Premium Bengaluru Sitter Club</span>
+    <h1>Meet the <span>Rogue Gallery</span></h1>
+    <p>We don't match cages. We match unhinged, delightfully spoiled, and highly specific routines. Find your pet's soulmate below!</p>
   </div>
 </section>
 
-<!-- QUIZ SECTION -->
+<!-- INTERACTIVE SPIRIT PET FINDER -->
 <section class="quiz-section">
   <div class="wrap">
     <div class="quiz-box" id="quiz-box">
       <div id="quiz-content">
-        <h3>How do you handle minor life inconveniences?</h3>
-        <button class="quiz-option" onclick="solveQuiz('fight')">🥊 I throw hands immediately. No questions asked.</button>
-        <button class="quiz-option" onclick="solveQuiz('chill')">🍕 Put on lofi, wrap in a blanket, and eat a slice.</button>
-        <button class="quiz-option" onclick="solveQuiz('sass')">💅 Give supreme side-eye, order coffee next to a volcano.</button>
-        <button class="quiz-option" onclick="solveQuiz('nerd')">📖 Open a massive textbook to study the problem.</button>
+        <h3>What is your current mental state?</h3>
+        <p class="quiz-subtitle">Let's find out which legendary Petsama client matches your energy today.</p>
+        <button class="quiz-option" onclick="solveQuiz('fight')">🥊 Ready to throw hands. Zero context required.</button>
+        <button class="quiz-option" onclick="solveQuiz('chill')">🍕 Under a polka-dot blanket, eating pizza and listening to lofi.</button>
+        <button class="quiz-option" onclick="solveQuiz('sass')">🕶️ Sipping an iced coffee next to a volcanic explosion. Completely unbothered.</button>
+        <button class="quiz-option" onclick="solveQuiz('nerd')">📖 Reading a textbook, analyzing market trends over my eyeglasses.</button>
       </div>
 
       <div class="quiz-result" id="quiz-result">
@@ -444,19 +521,20 @@
         <div class="result-img-wrap">
           <img id="result-img" src="" alt="Spirit Animal">
         </div>
-        <p id="result-desc" style="font-weight: 700; margin-bottom: 24px; color: var(--ink-soft);"></p>
-        <button class="btn-back" onclick="resetQuiz()">Try Again 🔄</button>
+        <p id="result-desc" style="font-weight: 600; margin-bottom: 24px; color: var(--ink-soft); line-height: 1.5;"></p>
+        <button class="btn-reset" onclick="resetQuiz()">Take Quiz Again 🔄</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FILTERED GALLERY AREA -->
+<!-- DYNAMIC GALLERY & FILTERS -->
 <section class="wrap">
   <div class="filter-area">
-    <h2 class="filter-title">Browse Our Client Index</h2>
+    <h2 class="filter-title">Browse Our Elite Client Index</h2>
+    <p class="filter-subtitle">18 real Bengaluru residents with routines too legendary for standard boarding.</p>
     <div class="filters-wrap">
-      <button class="filter-btn active" onclick="filterGallery('all', this)">All Legends (18)</button>
+      <button class="filter-btn active" onclick="filterGallery('all', this)">All Clients (18)</button>
       <button class="filter-btn" onclick="filterGallery('fight', this)">Threat Level Midnight (3)</button>
       <button class="filter-btn" onclick="filterGallery('chill', this)">Pure Zen Vibes (6)</button>
       <button class="filter-btn" onclick="filterGallery('sass', this)">Sassy & Unbothered (6)</button>
@@ -476,11 +554,11 @@
         <div>
           <h3 class="card-title">Sensei Fluff</h3>
           <p class="subtitle">Discipline: Goju-Ryu Martial Arts</p>
-          <p class="desc">Will square up the moment you enter the living room. Demands respect, high-protein kibble, and a sparring partner.</p>
+          <p class="desc">Will square up the moment you enter the living room. Demands respect, high-protein treats, and a worthy sparring partner.</p>
         </div>
         <div class="stat-row">
-          <span class="stat-label">Aggression Level</span>
-          <span class="stat-val" style="color:var(--red);">11/10</span>
+          <span class="stat-label">Wanna Fight?</span>
+          <span class="stat-val" style="color:var(--red);">100% Yes</span>
         </div>
       </div>
     </div>
@@ -498,8 +576,8 @@
           <p class="desc">Requires over-ear headphones and a highly specific 4-hour lo-fi playlist on Spotify during thunderstorm season.</p>
         </div>
         <div class="stat-row">
-          <span class="stat-label">Chill Level</span>
-          <span class="stat-val" style="color:var(--gold);">Max</span>
+          <span class="stat-label">Vibe Level</span>
+          <span class="stat-val" style="color:var(--gold);">Max Zen</span>
         </div>
       </div>
     </div>
@@ -740,12 +818,12 @@
       </div>
       <div class="card-body">
         <div>
-          <h3 class="card-title">Sparky in denim</h3>
+          <h3 class="card-title">Sparky in Denim</h3>
           <p class="subtitle">Energy: Pure wholesome boy</p>
           <p class="desc">Sits politely among local flowers wearing his favorite cap. The easiest client on our roster. Give him a high five.</p>
         </div>
         <div class="stat-row">
-          <span class="stat-label">Good Boy score</span>
+          <span class="stat-label">Good Boy Score</span>
           <span class="stat-val">999/10</span>
         </div>
       </div>
@@ -814,8 +892,11 @@
 <!-- CALL TO ACTION BANNER -->
 <section class="footer-banner">
   <h2>Is your pet a certified rogue too? 🐾</h2>
-  <p>No matter how specific, unhinged, or royal their daily demands are—our verified sitters will fulfill them perfectly.</p>
-  <a href="book.html" class="btn-cta">Submit Sitter Request</a>
+  <p>No matter how specific, unhinged, or royal their daily demands are — our verified, background-checked sitters will fulfill them perfectly.</p>
+  <div class="cta-buttons">
+    <a href="book.html" class="btn-cta">Submit Sitter Request</a>
+    <a href="https://wa.me/918429272310" target="_blank" class="btn-cta wa">💬 Chat on WhatsApp</a>
+  </div>
 </section>
 
 <!-- SCRIPTS FOR VIBE MATCHING & FILTERS -->
@@ -835,7 +916,7 @@
     sass: {
       name: "Babushka Bella",
       img: "55c267203b80bce71e78984398f0e0be.jpg",
-      desc: "You are totally unbothered. Let the volcano explode, let the worlds collide—you have sunglasses, a stunning headscarf, and an iced coffee."
+      desc: "You are totally unbothered. Let the volcano explode, let the worlds collide — you have sunglasses, a stunning headscarf, and an iced coffee."
     },
     nerd: {
       name: "Professor Winston",
@@ -862,12 +943,10 @@
 
   // Real-time Card Filtering Logic
   function filterGallery(category, clickedBtn) {
-    // Toggle Active Class for Buttons
     const buttons = document.querySelectorAll('.filter-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
     clickedBtn.classList.add('active');
 
-    // Filter Cards
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
       const cardCat = card.getAttribute('data-category');
