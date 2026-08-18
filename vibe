@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Rogue Gallery — Petsama Bengaluru</title>
+<meta name="description" content="Meet the famously unhinged, delightfully spoiled, and highly demanding clients of Petsama Bengaluru. Take the vibe quiz to find your spirit pet!">
+
+<!-- Elegant editorial & premium modern fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --cream: #FAF6F0;
+    --cream-dark: #F0E6DC;
+    --red: #C1272D;
+    --red-dark: #7A1418;
+    --ink: #18130F;
+    --ink-soft: #5C4D43;
+    --gold: #E5A93C;
+    --sakura: #F3C1C6;
+    --sage: #C5E0C8;
+    --blue: #A2D2FF;
+
+    --border-thick: 3px solid var(--ink);
+    --border-thin: 2px solid var(--ink);
+    --shadow-neobrutal: 6px 6px 0px var(--ink);
+    --shadow-neobrutal-hover: 10px 10px 0px var(--ink);
+    --shadow-small: 3px 3px 0px var(--ink);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+    padding-bottom: 80px;
+  }
+
+  h1, h2, h3, .logo-text {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+  }
+
+  .wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* --- HEADER & BRANDING --- */
+  header {
+    background: var(--cream);
+    border-bottom: var(--border-thick);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 246, 240, 0.95);
+    backdrop-filter: blur(8px);
+  }
+
+  header .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+  }
+
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-text {
+    font-size: 24px;
+    color: var(--red);
+  }
+
+  .btn-back {
+    font-weight: 800;
+    font-size: 14px;
+    padding: 8px 18px;
+    background: #fff;
+    border: var(--border-thin);
+    border-radius: 50px;
+    box-shadow: var(--shadow-small);
+    text-decoration: none;
+    color: var(--ink);
+    transition: all 0.15s ease;
+  }
+
+  .btn-back:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  /* --- HERO HEROIC CHAOS --- */
+  .hero {
+    text-align: center;
+    padding: 80px 0 40px;
+    background-image: radial-gradient(var(--cream-dark) 2px, transparent 2px);
+    background-size: 24px 24px;
+    border-bottom: var(--border-thick);
+  }
+
+  .eyebrow {
+    display: inline-block;
+    background: var(--gold);
+    border: var(--border-thin);
+    padding: 6px 16px;
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-small);
+  }
+
+  .hero h1 {
+    font-size: 56px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--ink);
+  }
+
+  .hero h1 span {
+    color: var(--red);
+    font-style: italic;
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 650px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  /* --- INTERACTIVE MINI-QUIZ --- */
+  .quiz-section {
+    background: var(--sakura);
+    border-bottom: var(--border-thick);
+    padding: 50px 0;
+  }
+
+  .quiz-box {
+    background: #fff;
+    border: var(--border-thick);
+    border-radius: 24px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    box-shadow: var(--shadow-neobrutal);
+    text-align: center;
+    position: relative;
+  }
+
+  .quiz-box h3 {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .quiz-option {
+    display: block;
+    width: 100%;
+    background: var(--cream);
+    border: var(--border-thin);
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.1s ease;
+  }
+
+  .quiz-option:hover {
+    background: var(--gold);
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-small);
+  }
+
+  .quiz-result {
+    display: none;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  @keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .result-img-wrap {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: var(--border-thick);
+    overflow: hidden;
+    margin: 0 auto 20px;
+    box-shadow: var(--shadow-small);
+  }
+
+  .result-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* --- FILTER BUTTONS --- */
+  .filter-area {
+    padding: 50px 0 20px;
+    text-align: center;
+  }
+
+  .filter-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .filters-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .filter-btn {
+    background: #fff;
+    border: var(--border-thin);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 13.5px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-shadow: var(--shadow-small);
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--ink);
+    color: #fff;
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px var(--gold);
+  }
+
+  /* --- GALLERY GRID --- */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .card {
+    background: #fff;
+    border: var(--border-thick);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-neobrutal);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .card:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: var(--shadow-neobrutal-hover);
+  }
+
+  .img-container {
+    height: 250px;
+    border-bottom: var(--border-thick);
+    position: relative;
+    background: var(--cream-dark);
+  }
+
+  .img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-weight: 800;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 50px;
+    border: var(--border-thin);
+    box-shadow: 2px 2px 0 var(--ink);
+    text-transform: uppercase;
+  }
+
+  /* Dynamic Tag Colors */
+  .tag.fight { background: var(--red); color: #fff; }
+  .tag.chill { background: var(--sage); color: var(--ink); }
+  .tag.sass { background: var(--sakura); color: var(--ink); }
+  .tag.nerd { background: var(--blue); color: var(--ink); }
+
+  .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  .card-title {
+    font-size: 22px;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+
+  .subtitle {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--red-dark);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .desc {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .stat-row {
+    border-top: 1.5px dashed var(--cream-dark);
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .stat-label {
+    color: var(--ink-soft);
+  }
+
+  .stat-val {
+    color: var(--ink);
+  }
+
+  /* --- FOOTER BANNER --- */
+  .footer-banner {
+    background: var(--ink);
+    color: var(--cream);
+    text-align: center;
+    padding: 60px 24px;
+    margin-top: 80px;
+    border-top: var(--border-thick);
+  }
+
+  .footer-banner h2 {
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+
+  .footer-banner p {
+    font-size: 16px;
+    color: var(--cream-dark);
+    margin-bottom: 24px;
+  }
+
+  .btn-cta {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-weight: 800;
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: var(--border-thin);
+    box-shadow: var(--shadow-small);
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .btn-cta:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 #fff;
+  }
+
+  /* --- RESPONSIVE DECOR --- */
+  @media(max-width: 768px) {
+    .hero h1 { font-size: 38px; }
+    .hero p { font-size: 15px; }
+    .quiz-box { padding: 24px; }
+    .quiz-box h3 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo-group">
+      <span class="logo-text">🐾 Petsama</span>
+    </div>
+    <a href="index.html" class="btn-back">← Back to Main</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">The Official Petsama Dossier</span>
+    <h1>The <span>Rogue Gallery</span></h1>
+    <p>We don't match cages. We match personalities. Meet our most famously spoiled, unhinged, and brilliantly demanding Bengaluru clients.</p>
+  </div>
+</section>
+
+<!-- QUIZ SECTION -->
+<section class="quiz-section">
+  <div class="wrap">
+    <div class="quiz-box" id="quiz-box">
+      <div id="quiz-content">
+        <h3>How do you handle minor life inconveniences?</h3>
+        <button class="quiz-option" onclick="solveQuiz('fight')">🥊 I throw hands immediately. No questions asked.</button>
+        <button class="quiz-option" onclick="solveQuiz('chill')">🍕 Put on lofi, wrap in a blanket, and eat a slice.</button>
+        <button class="quiz-option" onclick="solveQuiz('sass')">💅 Give supreme side-eye, order coffee next to a volcano.</button>
+        <button class="quiz-option" onclick="solveQuiz('nerd')">📖 Open a massive textbook to study the problem.</button>
+      </div>
+
+      <div class="quiz-result" id="quiz-result">
+        <h3 id="result-title">You are Coco!</h3>
+        <div class="result-img-wrap">
+          <img id="result-img" src="" alt="Spirit Animal">
+        </div>
+        <p id="result-desc" style="font-weight: 700; margin-bottom: 24px; color: var(--ink-soft);"></p>
+        <button class="btn-back" onclick="resetQuiz()">Try Again 🔄</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTERED GALLERY AREA -->
+<section class="wrap">
+  <div class="filter-area">
+    <h2 class="filter-title">Browse Our Client Index</h2>
+    <div class="filters-wrap">
+      <button class="filter-btn active" onclick="filterGallery('all', this)">All Legends (18)</button>
+      <button class="filter-btn" onclick="filterGallery('fight', this)">Threat Level Midnight (3)</button>
+      <button class="filter-btn" onclick="filterGallery('chill', this)">Pure Zen Vibes (6)</button>
+      <button class="filter-btn" onclick="filterGallery('sass', this)">Sassy & Unbothered (6)</button>
+      <button class="filter-btn" onclick="filterGallery('nerd', this)">Academic & Deep (3)</button>
+    </div>
+  </div>
+
+  <div class="gallery-grid" id="gallery-grid">
+
+    <!-- Card 1 -->
+    <div class="card" data-category="fight">
+      <div class="img-container">
+        <img src="1.jpg" alt="Wanna Fight Cat">
+        <span class="tag fight">Fight</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Sensei Fluff</h3>
+          <p class="subtitle">Discipline: Goju-Ryu Martial Arts</p>
+          <p class="desc">Will square up the moment you enter the living room. Demands respect, high-protein kibble, and a sparring partner.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Aggression Level</span>
+          <span class="stat-val" style="color:var(--red);">11/10</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" data-category="chill">
+      <div class="img-container">
+        <img src="2.jpg" alt="Headphone Dog">
+        <span class="tag chill">Chill</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">DJ Barnaby</h3>
+          <p class="subtitle">Prefers: Chillhop beats to study/sleep to</p>
+          <p class="desc">Requires over-ear headphones and a highly specific 4-hour lo-fi playlist on Spotify during thunderstorm season.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Chill Level</span>
+          <span class="stat-val" style="color:var(--gold);">Max</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" data-category="chill">
+      <div class="img-container">
+        <img src="3.jpg" alt="Relax Shawty Dog">
+        <span class="tag chill">Chill</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Zen Master Shiba</h3>
+          <p class="subtitle">Catchphrase: "Relax Shawty"</p>
+          <p class="desc">A diplomatic mediator. If there is tension, he puts his paws up and commands the entire room to lower their heart rate.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Heart Rate</span>
+          <span class="stat-val">40 BPM</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card" data-category="fight">
+      <div class="img-container">
+        <img src="3001781689efe53a620b2ddc662992c9.jpg" alt="Boxing Glove Cat">
+        <span class="tag fight">Fight</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Little Mac</h3>
+          <p class="subtitle">Class: Heavyweight Champ</p>
+          <p class="desc">Has literal boxing gloves on stand-by. If you step on his rug without authorization, he will offer a swift left-hook.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Sparring Record</span>
+          <span class="stat-val">12-0 (all KOs)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card" data-category="sass">
+      <div class="img-container">
+        <img src="4.jpg" alt="Sassy Dachshund">
+        <span class="tag sass">Sass</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Princess Coco</h3>
+          <p class="subtitle">Mood: Superiority Complex</p>
+          <p class="desc">Stares into your soul from the couch and judges your fashion choices. Needs to be carried down the stairs.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Side-Eye Power</span>
+          <span class="stat-val" style="color:var(--red);">Infinite</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card" data-category="sass">
+      <div class="img-container">
+        <img src="452ba041686f80d295e4f410c21176d1.jpg" alt="Cool Dog Cap">
+        <span class="tag sass">Sass</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Drip Lord Rocky</h3>
+          <p class="subtitle">Location: Lake Side Chillin</p>
+          <p class="desc">Dressed better than 99% of tech professionals in Whitefield. Tells everyone "whatever" and refuses plain water.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Fits Rating</span>
+          <span class="stat-val">10/10</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="card" data-category="chill">
+      <div class="img-container">
+        <img src="5.jpg" alt="Sleeping Lab">
+        <span class="tag chill">Chill</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Socrates the Lab</h3>
+          <p class="subtitle">State: Golden Hour Meditation</p>
+          <p class="desc">Absorbs warm solar rays on the balcony. Will not move for treats, walks, or loud sirens. Achieving nirvana.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Enlightenment</span>
+          <span class="stat-val">100%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="card" data-category="sass">
+      <div class="img-container">
+        <img src="55c267203b80bce71e78984398f0e0be.jpg" alt="Crisis Queen Cat">
+        <span class="tag sass">Sass</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Babushka Bella</h3>
+          <p class="subtitle">Aesthetic: Volcanic Coffee Break</p>
+          <p class="desc">While the world burns around her, she enjoys an iced latte wearing a vintage headscarf. Absolute legend.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Panic Level</span>
+          <span class="stat-val">0.0%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="card" data-category="chill">
+      <div class="img-container">
+        <img src="5bd5719eb61a7c4305d56f7eaa9c7054.jpg" alt="Pizza Sofa Dog">
+        <span class="tag chill">Chill</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Baron Von Snuggle</h3>
+          <p class="subtitle">Sunday Routine: Sofa, Pizza, Remote</p>
+          <p class="desc">A total couch potato. If you do not tuck him in with his polka-dot blanket, he will draft a strongly worded complaint.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Sofa Ownership</span>
+          <span class="stat-val">100% Shared</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="card" data-category="sass">
+      <div class="img-container">
+        <img src="6bf3750e15149ecb2f2d367a92f3a2c6.jpg" alt="Window Drama Cat">
+        <span class="tag sass">Sass</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Madame Beatrice</h3>
+          <p class="subtitle">Vibe: Existential French Film Star</p>
+          <p class="desc">Sits by the rainy glass window looking incredibly sad. Demands slow jazz and organic catnip at exactly 4:00 PM.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Existential Dread</span>
+          <span class="stat-val">Critical</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 11 -->
+    <div class="card" data-category="fight">
+      <div class="img-container">
+        <img src="761e5e9aaaf251f6534fe733e882e45e.jpg" alt="Screaming Cat Hand">
+        <span class="tag fight">Fight</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">The Accuser</h3>
+          <p class="subtitle">Habit: Pointing Fingers</p>
+          <p class="desc">Will scream at you directly for leaving the room for more than 15 seconds. High volume, direct confrontation.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Volume Level</span>
+          <span class="stat-val">120 Decibels</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 12 -->
+    <div class="card" data-category="chill">
+      <div class="img-container">
+        <img src="aacaace330d132ccd2a3bee89cbda2b1.jpg" alt="Golden Tulips">
+        <span class="tag chill">Chill</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Sir Romeo</h3>
+          <p class="subtitle">Occupation: Romance Architect</p>
+          <p class="desc">Greets the sitter at the door holding freshly plucked garden tulips. An absolute gentleman of unparalleled class.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Rizz Level</span>
+          <span class="stat-val" style="color:var(--gold);">Unmatched</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 13 -->
+    <div class="card" data-category="sass">
+      <div class="img-container">
+        <img src="b46efbfde7563b33f15b3ea350d212cf.jpg" alt="Wig Bulldog">
+        <span class="tag sass">Sass</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Karen the Frenchie</h3>
+          <p class="subtitle">Request: Wants to see the Manager</p>
+          <p class="desc">Equipped with a custom gloss wig and bang-cut. Highly suspicious of our background check timeline.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Review Rating</span>
+          <span class="stat-val">1.5 Stars</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 14 -->
+    <div class="card" data-category="sass">
+      <div class="img-container">
+        <img src="b6fb094d13a2fa688f56f7eaa9c7054.jpg" alt="Looksmaxxing Mewing Cat">
+        <span class="tag sass">Sass</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Chad the Mewing Cat</h3>
+          <p class="subtitle">Hobby: Shushing the Sitter</p>
+          <p class="desc">Refuses to talk. Keeps pointing to his jawline to indicate he is in the middle of a rigorous mewing session.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Jawline Definition</span>
+          <span class="stat-val">Chiseled Stone</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 15 -->
+    <div class="card" data-category="chill">
+      <div class="img-container">
+        <img src="dae7d6ab8e2abd3e74d776a5fd49a6cb.jpg" alt="Cap Smiling Dog">
+        <span class="tag chill">Chill</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Sparky in denim</h3>
+          <p class="subtitle">Energy: Pure wholesome boy</p>
+          <p class="desc">Sits politely among local flowers wearing his favorite cap. The easiest client on our roster. Give him a high five.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Good Boy score</span>
+          <span class="stat-val">999/10</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 16 -->
+    <div class="card" data-category="nerd">
+      <div class="img-container">
+        <img src="6.jpg" alt="Reading Aussie">
+        <span class="tag nerd">Nerd</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Professor Winston</h3>
+          <p class="subtitle">Major: Treat Economics</p>
+          <p class="desc">Aussie Shepherd reading historical finance journals. Will analyze your sit-in schedule using mathematical formulas.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">IQ Score</span>
+          <span class="stat-val">Higher than Sitter</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 17 -->
+    <div class="card" data-category="nerd">
+      <div class="img-container">
+        <img src="647be3c4858a3288584f38c29ea0c07b.jpg" alt="Edgar Cut Dog">
+        <span class="tag nerd">Nerd</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Edgar</h3>
+          <p class="subtitle">Hairstyle: High Fade Bowl-Cut</p>
+          <p class="desc">Very serious. Looks directly into your eyes with absolute focus. Refuses any head rubs that ruin the symmetry of his cut.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Hair Symmetry</span>
+          <span class="stat-val">Perfect 100%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 18 -->
+    <div class="card" data-category="nerd">
+      <div class="img-container">
+        <img src="99de2dda788780b19d1f8f605bfb577a.jpg" alt="Derp Shaka Cat">
+        <span class="tag nerd">Nerd</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">Derpy Dave</h3>
+          <p class="subtitle">Vibe: Head Empty, Hang Loose</p>
+          <p class="desc">Loves to pull a derp face while throwing up a hanging-loose shaka sign. Has zero thoughts in his brain, and he is happy.</p>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Thought Count</span>
+          <span class="stat-val">0</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CALL TO ACTION BANNER -->
+<section class="footer-banner">
+  <h2>Is your pet a certified rogue too? 🐾</h2>
+  <p>No matter how specific, unhinged, or royal their daily demands are—our verified sitters will fulfill them perfectly.</p>
+  <a href="book.html" class="btn-cta">Submit Sitter Request</a>
+</section>
+
+<!-- SCRIPTS FOR VIBE MATCHING & FILTERS -->
+<script>
+  // Simple Quiz Matching Logic
+  const spiritAnimals = {
+    fight: {
+      name: "Sensei Fluff & Little Mac",
+      img: "1.jpg",
+      desc: "You do not compromise. You do not talk. You enter the ring ready to lay down the law with direct martial arts paws up. We match you with expert wrestling sitters."
+    },
+    chill: {
+      name: "Baron Von Snuggle",
+      img: "5bd5719eb61a7c4305d56f7eaa9c7054.jpg",
+      desc: "You appreciate the finer things: blanket tunnels, fresh pizza slices on the sofa, and uninterrupted lofi sessions. You expect the best service while you relax."
+    },
+    sass: {
+      name: "Babushka Bella",
+      img: "55c267203b80bce71e78984398f0e0be.jpg",
+      desc: "You are totally unbothered. Let the volcano explode, let the worlds collide—you have sunglasses, a stunning headscarf, and an iced coffee."
+    },
+    nerd: {
+      name: "Professor Winston",
+      img: "6.jpg",
+      desc: "You analyze everything down to the decimal point. You read academic literature over your spectacles and require data proof before accepting treats."
+    }
+  };
+
+  function solveQuiz(vibeKey) {
+    const result = spiritAnimals[vibeKey];
+    document.getElementById('quiz-content').style.display = 'none';
+
+    document.getElementById('result-title').textContent = "Spirit Client: " + result.name + "!";
+    document.getElementById('result-img').src = result.img;
+    document.getElementById('result-desc').textContent = result.desc;
+
+    document.getElementById('quiz-result').style.display = 'block';
+  }
+
+  function resetQuiz() {
+    document.getElementById('quiz-result').style.display = 'none';
+    document.getElementById('quiz-content').style.display = 'block';
+  }
+
+  // Real-time Card Filtering Logic
+  function filterGallery(category, clickedBtn) {
+    // Toggle Active Class for Buttons
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    clickedBtn.classList.add('active');
+
+    // Filter Cards
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      const cardCat = card.getAttribute('data-category');
+      if (category === 'all' || cardCat === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
